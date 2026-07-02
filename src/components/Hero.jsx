@@ -97,7 +97,9 @@ export default function Hero() {
                 <Mail size={18} />
                 Contact
               </a>
-              <a href="/resume.pdf" download="Seangly_Resume.pdf" className="btn-secondary">
+              {/* <a href="#" download="#" className="btn-secondary"></a> */}
+
+              <a href="#" className="btn-secondary">
                 <Download size={18} />
                 Resume
               </a>
