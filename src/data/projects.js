@@ -12,7 +12,7 @@ export const projects = [
       "A personal dashboard built with HTML CSS and JS to showcase a Greeting of the day, weather of your current location, countdown timer, random inspiration quotes and a fact that you didn't know refresh every 30s also a customize setting for a cool background image or video. With a clean UI that user can easly navigate through the dashboard.",
     tags: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/SeanglySEM/My-Dashboard.git",
-    demo: "https://seanglysem.github.io/My-Dashboard/",
+    demo: "https://seanglysem.github.io/my-dashboard/",
     gradient: "from-zinc-900 via-zinc-700 to-zinc-500",
     image: "", // Add your project screenshot path here (e.g., "/dashboard.png" in public folder)
   },
