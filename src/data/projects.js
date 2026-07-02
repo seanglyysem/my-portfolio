@@ -14,7 +14,7 @@ export const projects = [
     github: "https://github.com/SeanglySEM/My-Dashboard.git",
     demo: "https://seanglysem.github.io/my-dashboard/",
     gradient: "from-zinc-900 via-zinc-700 to-zinc-500",
-    image: "", // Add your project screenshot path here (e.g., "/dashboard.png" in public folder)
+    image: "./dashboard.png", // Add your project screenshot path here (e.g., "/dashboard.png" in public folder)
   },
   {
     id: 2,
