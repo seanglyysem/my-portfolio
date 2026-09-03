@@ -9,9 +9,18 @@ export const projects = [
     description:
       "A customizable personal dashboard built with HTML, CSS, and vanilla JavaScript. Features live local weather, rotating inspirational quotes, a countdown timer, and personalized video or image background settings.",
     tags: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/SeanglySEM/My-Dashboard.git",
-    demo: "https://seanglysem.github.io/my-dashboard/",
-    image: "/dashboard.png",
+    github: "#",
+    demo: "#",
+    codeSnippet: {
+      file: "dashboard.js",
+      lang: "JavaScript",
+      code: `// Fetch local weather and greeting routine
+async function initDashboard(coords) {
+  const weather = await fetchWeather(coords);
+  renderWeatherWidget(weather);
+  startQuoteRotation({ intervalMs: 30000 });
+}`,
+    },
     features: [
       "Current weather and greeting based on user location",
       "Rotating inspirational quotes and trivia facts every 30 seconds",
@@ -21,47 +30,102 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Student Management System",
+    title: "Attendance Management System",
     description:
-      "A student administration system developed with Java using object-oriented principles. Manages student registration records, course enrollments, and academic data with relational database storage.",
-    tags: ["Java", "Database", "OOP"],
-    github: "https://github.com/SeanglySEM",
+      "A web-based attendance tracking platform designed for classes and teams. Manages daily check-ins, student attendance records, automated leave tracking, and downloadable summary reports.",
+    tags: ["Java", "Spring Boot", "MySQL"],
+    github: "#",
     demo: "#",
-    image: "/student-system.png",
+    codeSnippet: {
+      file: "AttendanceController.java",
+      lang: "Java",
+      code: `@PostMapping("/records/check-in")
+public ResponseEntity<Record> recordCheckIn(@Valid @RequestBody CheckInDto req) {
+    Student student = studentRepo.findById(req.getStudentId())
+        .orElseThrow(() -> new RecordNotFoundException());
+    return ResponseEntity.ok(attendanceService.markPresent(student));
+}`,
+    },
     features: [
-      "Student record registration and management",
-      "Course enrollment tracking and grade calculation",
-      "Structured OOP architecture with relational database storage",
+      "Real-time student attendance check-ins and absence monitoring",
+      "Course enrollment tracking with structured relational database tables",
+      "Exportable attendance analytics reports for faculty and administrators",
     ],
   },
   {
     id: 3,
-    title: "Weather App",
+    title: "AI Chatbot",
     description:
-      "A clean weather web application connected to the OpenWeather REST API. Allows users to search global cities for real-time forecasts, humidity, wind speeds, and temperature with a responsive interface.",
-    tags: ["JavaScript", "REST APIs", "Frontend"],
-    github: "https://github.com/SeanglySEM",
+      "An interactive conversational assistant powered by large language model APIs. Features streaming responses, multi-turn chat memory, prompt template presets, and clean markdown rendering.",
+    tags: ["React", "Node.js", "OpenAI API"],
+    github: "#",
     demo: "#",
-    image: "/weather-app.png",
+    codeSnippet: {
+      file: "chatStream.js",
+      lang: "Node.js",
+      code: `export async function streamChatResponse(prompt, history) {
+  const stream = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [{ role: "system", content: PERSONA }, ...history, { role: "user", content: prompt }],
+    stream: true,
+  });
+  return stream;
+}`,
+    },
     features: [
-      "Real-time weather data fetching via OpenWeather API",
-      "City search with forecasts, humidity, wind speed, and temperatures",
-      "Responsive, clean card interface styled with modern CSS",
+      "Streaming conversation generation with low-latency API handling",
+      "Context-aware chat history and prompt customization",
+      "Syntax-highlighted code blocks and markdown rendering",
     ],
   },
   {
     id: 4,
-    title: "Full Stack Web Application",
+    title: "Task Automation Tool",
     description:
-      "A full-stack web application currently in progress built with React, Node.js, and PostgreSQL, focusing on secure user authentication and database persistence.",
-    tags: ["React", "Node.js", "PostgreSQL"],
+      "A workflow automation engine built to streamline repetitive developer tasks. Manages scheduled cron triggers, data transformation pipelines, and automated multi-channel notifications.",
+    tags: ["Python", "Automation", "REST APIs"],
     github: "#",
     demo: "#",
-    image: "",
+    codeSnippet: {
+      file: "pipeline_runner.py",
+      lang: "Python",
+      code: `@scheduler.cron("0 */2 * * *")
+async def run_sync_pipeline():
+    logger.info("Executing automated sync job...")
+    raw_payload = await fetch_external_records()
+    clean_data = transform_schema(raw_payload)
+    await dispatch_webhook(target="alerts", data=clean_data)`,
+    },
     features: [
-      "User authentication and protected routes",
-      "Relational database integration with PostgreSQL",
-      "RESTful API endpoints with Express and Node.js",
+      "Automated pipeline scheduler and background script runner",
+      "Webhook listeners and structured JSON data transformation",
+      "Error logging and instant alert delivery via webhooks",
+    ],
+  },
+  {
+    id: 5,
+    title: "Full Stack Website",
+    description:
+      "A production-ready full-stack web application featuring secure JWT authentication, responsive interface components, and relational database persistence with PostgreSQL.",
+    tags: ["React", "Node.js", "PostgreSQL", "Express"],
+    github: "#",
+    demo: "#",
+    codeSnippet: {
+      file: "auth.controller.js",
+      lang: "Express",
+      code: `router.post("/auth/login", async (req, res) => {
+  const { email, password } = loginSchema.parse(req.body);
+  const user = await db.user.findUnique({ where: { email } });
+  if (!user || !(await verifyHash(password, user.passwordHash))) {
+    return res.status(401).json({ error: "Invalid credentials" });
+  }
+  return res.json({ token: signToken(user.id) });
+});`,
+    },
+    features: [
+      "Secure user authentication and role-based access control",
+      "RESTful API architecture connected to PostgreSQL database",
+      "Responsive, accessible UI with system dark and light modes",
     ],
   },
 ]
