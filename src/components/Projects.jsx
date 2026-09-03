@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { motion } from "framer-motion"
 import {
   ExternalLink,
@@ -46,12 +45,6 @@ const projectMeta = {
 }
 
 export default function Projects() {
-  const [activeCardId, setActiveCardId] = useState(null)
-
-  const toggleCard = (id) => {
-    setActiveCardId((prev) => (prev === id ? null : id))
-  }
-
   return (
     <section id="projects" className="section-container border-t border-theme">
       {/* Section Header */}
@@ -75,7 +68,6 @@ export default function Projects() {
         {projects.map((project, idx) => {
           const meta = projectMeta[project.id] || projectMeta[1]
           const IconComp = meta.icon
-          const isExpanded = activeCardId === project.id
 
           return (
             <motion.article
@@ -86,18 +78,9 @@ export default function Projects() {
               transition={{ duration: 0.35, delay: idx * 0.08 }}
               className="group rounded-2xl border border-theme bg-surface overflow-hidden flex flex-col hover:border-theme-strong transition-all duration-300"
             >
-              {/* Interactive Banner: Centered Icon that rolls left and reveals text on hover & mobile tap */}
+              {/* Banner: Always shown on mobile; hover roll-to-reveal on laptop */}
               <div
-                onClick={() => toggleCard(project.id)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault()
-                    toggleCard(project.id)
-                  }
-                }}
-                className={`h-40 relative flex items-center justify-center px-6 bg-gradient-to-br ${meta.gradient} bg-surface-panel/40 border-b border-theme overflow-hidden cursor-pointer select-none`}
+                className={`h-40 relative flex items-center justify-center px-6 bg-gradient-to-br ${meta.gradient} bg-surface-panel/40 border-b border-theme overflow-hidden select-none`}
               >
                 {/* Subtle Grid Accent Pattern */}
                 <div
@@ -109,29 +92,17 @@ export default function Projects() {
                   }}
                 />
 
-                {/* Unified Interactive Pill / Capsule */}
+                {/* Capsule: Expanded on mobile, hover-expanded on desktop */}
                 <div
-                  className={`relative z-10 inline-flex items-center gap-2.5 px-3.5 py-2.5 rounded-full border ${meta.iconBg} bg-surface/90 backdrop-blur-sm shadow-sm transition-all duration-300 ease-out ${
-                    isExpanded ? "px-4 shadow-md" : ""
-                  } group-hover:px-4 group-hover:shadow-md`}
+                  className={`relative z-10 inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full border ${meta.iconBg} bg-surface/90 backdrop-blur-sm shadow-sm transition-all duration-300 ease-out md:px-3.5 md:group-hover:px-4 md:group-hover:shadow-md`}
                 >
-                  {/* Icon that rolls slightly to the left */}
-                  <span
-                    className={`shrink-0 transition-transform duration-300 ease-out ${
-                      isExpanded ? "-rotate-12 scale-105" : ""
-                    } group-hover:-rotate-12 group-hover:scale-105`}
-                  >
+                  {/* Icon: slightly tilted on mobile, rolls on laptop hover */}
+                  <span className="shrink-0 transition-transform duration-300 ease-out -rotate-12 scale-105 md:rotate-0 md:scale-100 md:group-hover:-rotate-12 md:group-hover:scale-105">
                     <IconComp size={22} />
                   </span>
 
-                  {/* Category text that unfolds and appears */}
-                  <span
-                    className={`overflow-hidden whitespace-nowrap text-xs font-mono tracking-wide transition-all duration-300 ease-out ${
-                      isExpanded
-                        ? "max-w-[220px] opacity-100"
-                        : "max-w-0 opacity-0"
-                    } group-hover:max-w-[220px] group-hover:opacity-100 text-primary`}
-                  >
+                  {/* Category text: Always visible on mobile, reveals on laptop hover */}
+                  <span className="overflow-hidden whitespace-nowrap text-xs font-mono tracking-wide transition-all duration-300 ease-out max-w-[220px] opacity-100 md:max-w-0 md:opacity-0 md:group-hover:max-w-[220px] md:group-hover:opacity-100 text-primary">
                     {meta.category}
                   </span>
                 </div>
@@ -160,10 +131,7 @@ export default function Projects() {
                 </div>
 
                 {/* Action Links */}
-                <div
-                  className="flex items-center gap-3 pt-2"
-                  onClick={(e) => e.stopPropagation()}
-                >
+                <div className="flex items-center gap-3 pt-2">
                   {project.demo && project.demo !== "#" && (
                     <a
                       href={project.demo}
