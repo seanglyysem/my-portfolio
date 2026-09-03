@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { motion } from "framer-motion"
 import {
   ExternalLink,
@@ -45,6 +46,12 @@ const projectMeta = {
 }
 
 export default function Projects() {
+  const [activeCardId, setActiveCardId] = useState(null)
+
+  const toggleCard = (id) => {
+    setActiveCardId((prev) => (prev === id ? null : id))
+  }
+
   return (
     <section id="projects" className="section-container border-t border-theme">
       {/* Section Header */}
@@ -68,6 +75,7 @@ export default function Projects() {
         {projects.map((project, idx) => {
           const meta = projectMeta[project.id] || projectMeta[1]
           const IconComp = meta.icon
+          const isExpanded = activeCardId === project.id
 
           return (
             <motion.article
@@ -78,13 +86,22 @@ export default function Projects() {
               transition={{ duration: 0.35, delay: idx * 0.08 }}
               className="group rounded-2xl border border-theme bg-surface overflow-hidden flex flex-col hover:border-theme-strong transition-all duration-300"
             >
-              {/* Interactive Banner: Centered Icon that rolls left and reveals text on hover */}
+              {/* Interactive Banner: Centered Icon that rolls left and reveals text on hover & mobile tap */}
               <div
-                className={`h-40 relative flex items-center justify-center px-6 bg-gradient-to-br ${meta.gradient} bg-surface-panel/40 border-b border-theme overflow-hidden`}
+                onClick={() => toggleCard(project.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault()
+                    toggleCard(project.id)
+                  }
+                }}
+                className={`h-40 relative flex items-center justify-center px-6 bg-gradient-to-br ${meta.gradient} bg-surface-panel/40 border-b border-theme overflow-hidden cursor-pointer select-none`}
               >
                 {/* Subtle Grid Accent Pattern */}
                 <div
-                  className="absolute inset-0 opacity-[0.04] dark:opacity-[0.07]"
+                  className="absolute inset-0 opacity-[0.04] dark:opacity-[0.07] pointer-events-none"
                   style={{
                     backgroundImage:
                       "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
@@ -94,15 +111,27 @@ export default function Projects() {
 
                 {/* Unified Interactive Pill / Capsule */}
                 <div
-                  className={`relative z-10 inline-flex items-center gap-2.5 px-3.5 py-2.5 rounded-full border ${meta.iconBg} bg-surface/90 backdrop-blur-sm shadow-sm transition-all duration-300 ease-out group-hover:px-4 group-hover:shadow-md`}
+                  className={`relative z-10 inline-flex items-center gap-2.5 px-3.5 py-2.5 rounded-full border ${meta.iconBg} bg-surface/90 backdrop-blur-sm shadow-sm transition-all duration-300 ease-out ${
+                    isExpanded ? "px-4 shadow-md" : ""
+                  } group-hover:px-4 group-hover:shadow-md`}
                 >
                   {/* Icon that rolls slightly to the left */}
-                  <span className="shrink-0 transition-transform duration-300 ease-out group-hover:-rotate-12 group-hover:scale-105">
+                  <span
+                    className={`shrink-0 transition-transform duration-300 ease-out ${
+                      isExpanded ? "-rotate-12 scale-105" : ""
+                    } group-hover:-rotate-12 group-hover:scale-105`}
+                  >
                     <IconComp size={22} />
                   </span>
 
                   {/* Category text that unfolds and appears */}
-                  <span className="max-w-0 opacity-0 overflow-hidden whitespace-nowrap text-xs font-mono tracking-wide transition-all duration-300 ease-out group-hover:max-w-[220px] group-hover:opacity-100 text-primary">
+                  <span
+                    className={`overflow-hidden whitespace-nowrap text-xs font-mono tracking-wide transition-all duration-300 ease-out ${
+                      isExpanded
+                        ? "max-w-[220px] opacity-100"
+                        : "max-w-0 opacity-0"
+                    } group-hover:max-w-[220px] group-hover:opacity-100 text-primary`}
+                  >
                     {meta.category}
                   </span>
                 </div>
@@ -131,7 +160,10 @@ export default function Projects() {
                 </div>
 
                 {/* Action Links */}
-                <div className="flex items-center gap-3 pt-2">
+                <div
+                  className="flex items-center gap-3 pt-2"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   {project.demo && project.demo !== "#" && (
                     <a
                       href={project.demo}
