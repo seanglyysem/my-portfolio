@@ -1,92 +1,101 @@
 import { motion } from "framer-motion"
-import { GraduationCap, Globe, Rocket } from "lucide-react"
+import { GraduationCap, Briefcase, BookOpen, Code } from "lucide-react"
 
-const timeline = [
+const milestones = [
+  {
+    icon: BookOpen,
+    period: "2022",
+    title: "High School Graduation",
+    description:
+      "Graduated high school with a strong passion for technology and computing, laying the foundation for higher education in software engineering.",
+  },
   {
     icon: GraduationCap,
-    title: "Computer Science Student",
+    period: "2023 – 2026",
+    title: "University Studies in Computer Science",
     description:
-      "Studying programming, software development, algorithms, and computer science fundamentals.",
-    colorFrom: "#3b82f6",
-    colorTo: "#06b6d4",
+      "Pursuing a Bachelor's degree in Computer Science. Studying core fundamentals including algorithms, data structures, object-oriented programming, software engineering, and database systems.",
   },
   {
-    icon: Globe,
-    title: "Web Development",
+    icon: Briefcase,
+    period: "May 11 – Aug 11, 2026",
+    title: "Digital Marketing Internship",
     description:
-      "Building frontend & backend projects using React, Node.js, and modern web technologies.",
-    colorFrom: "#06b6d4",
-    colorTo: "#a855f7",
+      "Completed a digital media and marketing internship, managing end-to-end content production, creative media storytelling, and post-production workflows.",
+    tasks: ["Content Research", "Script Writing", "Video Shooting", "Video Editing"],
   },
   {
-    icon: Rocket,
-    title: "Project Practice",
+    icon: Code,
+    period: "Aug 20, 2026 – Present",
+    title: "Full Stack Developer Internship",
     description:
-      "Creating real full stack projects to improve coding skills and build a strong portfolio.",
-    colorFrom: "#a855f7",
-    colorTo: "#3b82f6",
+      "Actively developing full-stack web applications, engineering responsive user interfaces, implementing backend endpoints, and collaborating on software features.",
+    tasks: ["React", "Node.js", "REST APIs", "Full Stack Development"],
   },
 ]
 
 export default function Journey() {
   return (
-    <section id="experience" className="section-padding relative">
-      <div className="absolute inset-0 section-glow-purple pointer-events-none" />
+    <section id="journey" className="section-container border-t border-theme">
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.4 }}
+        className="mb-12"
+      >
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-primary">
+          Education &amp; Experience
+        </h2>
+        <p className="text-secondary text-sm md:text-base max-w-2xl mt-2 leading-relaxed">
+          My academic path through computer science studies and practical industry experience.
+        </p>
+      </motion.div>
 
-      <div className="relative max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <h2 className="heading-xl">
-            Learning <span className="gradient-text">Journey</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-accent-cyan to-accent-purple mx-auto rounded-full" />
-        </motion.div>
+      {/* Clean Timeline */}
+      <div className="space-y-4">
+        {milestones.map((m, idx) => (
+          <motion.div
+            key={m.title}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.35, delay: idx * 0.08 }}
+            className="rounded-2xl border border-theme bg-surface p-6 flex flex-col sm:flex-row sm:items-start gap-4 hover:border-theme-strong transition-colors"
+          >
+            <div className="p-2.5 rounded-xl border border-theme bg-surface-panel text-accent-cyan shrink-0 self-start">
+              <m.icon size={18} />
+            </div>
+            <div className="space-y-1 flex-1">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h3 className="text-base font-semibold text-primary">
+                  {m.title}
+                </h3>
+                <span className="text-xs font-mono font-medium text-accent-cyan px-2.5 py-0.5 rounded bg-surface-panel border border-theme">
+                  {m.period}
+                </span>
+              </div>
+              <p className="text-sm text-secondary leading-relaxed pt-1">
+                {m.description}
+              </p>
 
-        <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-accent-cyan via-accent-blue to-accent-purple" />
-
-          <div className="space-y-8">
-            {timeline.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="relative pl-16 md:pl-20"
-              >
-                <div
-                  className="absolute left-3.5 md:left-5.5 top-6 w-5 h-5 rounded-full border-4 border-surface z-10"
-                  style={{ background: `linear-gradient(135deg, ${item.colorFrom}, ${item.colorTo})` }}
-                />
-
-                <div className="glass glass-hover rounded-2xl p-6 md:p-8">
-                  <div className="flex items-start gap-4">
-                    <div
-                      className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-                      style={{ background: `linear-gradient(135deg, ${item.colorFrom}, ${item.colorTo})` }}
+              {/* Tasks / Skills Tags */}
+              {m.tasks && (
+                <div className="flex flex-wrap gap-1.5 pt-2.5">
+                  {m.tasks.map((task) => (
+                    <span
+                      key={task}
+                      className="px-2.5 py-0.5 rounded text-xs font-mono text-secondary bg-surface-panel border border-theme"
                     >
-                      <item.icon size={20} className="text-white shrink-0" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg md:text-xl font-semibold text-primary mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-secondary text-sm md:text-base leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
+                      {task}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+              )}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   )

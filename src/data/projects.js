@@ -1,7 +1,5 @@
 // ============================================
-// EDIT YOUR PROJECTS HERE
-// Add, remove, or update project objects in this array.
-// Each project needs: id, title, description, tags, github, demo, gradient
+// PROJECTS DATA
 // ============================================
 
 export const projects = [
@@ -9,45 +7,61 @@ export const projects = [
     id: 1,
     title: "My Dashboard",
     description:
-      "A personal dashboard built with HTML CSS and JS to showcase a Greeting of the day, weather of your current location, countdown timer, random inspiration quotes and a fact that you didn't know refresh every 30s also a customize setting for a cool background image or video. With a clean UI that user can easly navigate through the dashboard.",
+      "A customizable personal dashboard built with HTML, CSS, and vanilla JavaScript. Features live local weather, rotating inspirational quotes, a countdown timer, and personalized video or image background settings.",
     tags: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/SeanglySEM/My-Dashboard.git",
     demo: "https://seanglysem.github.io/my-dashboard/",
-    gradient: "from-zinc-900 via-zinc-700 to-zinc-500",
-    image: "./dashboard.png", // Add your project screenshot path here (e.g., "/dashboard.png" in public folder)
+    image: "/dashboard.png",
+    features: [
+      "Current weather and greeting based on user location",
+      "Rotating inspirational quotes and trivia facts every 30 seconds",
+      "Customizable animated video or static wallpaper background",
+      "Built-in countdown timer and quick task widgets",
+    ],
   },
   {
     id: 2,
     title: "Student Management System",
     description:
-      "A simple system for managing student records, courses, and basic academic information.",
+      "A student administration system developed with Java using object-oriented principles. Manages student registration records, course enrollments, and academic data with relational database storage.",
     tags: ["Java", "Database", "OOP"],
-    github: "#",
+    github: "https://github.com/SeanglySEM",
     demo: "#",
-    gradient: "from-zinc-500 via-zinc-700 to-zinc-900",
-    image: "",
+    image: "/student-system.png",
+    features: [
+      "Student record registration and management",
+      "Course enrollment tracking and grade calculation",
+      "Structured OOP architecture with relational database storage",
+    ],
   },
   {
     id: 3,
     title: "Weather App",
     description:
-      "A web app that shows weather information using an API with a clean and responsive interface.",
-    tags: ["JavaScript", "API", "Frontend"],
-    github: "#",
+      "A clean weather web application connected to the OpenWeather REST API. Allows users to search global cities for real-time forecasts, humidity, wind speeds, and temperature with a responsive interface.",
+    tags: ["JavaScript", "REST APIs", "Frontend"],
+    github: "https://github.com/SeanglySEM",
     demo: "#",
-    gradient: "from-zinc-800 via-zinc-600 to-zinc-800",
-    image: "",
+    image: "/weather-app.png",
+    features: [
+      "Real-time weather data fetching via OpenWeather API",
+      "City search with forecasts, humidity, wind speed, and temperatures",
+      "Responsive, clean card interface styled with modern CSS",
+    ],
   },
   {
     id: 4,
-    title: "Coming Soon",
+    title: "Full Stack Web Application",
     description:
-      "More projects will be added as I continue learning and building.",
-    tags: ["Future Project", "Learning"],
+      "A full-stack web application currently in progress built with React, Node.js, and PostgreSQL, focusing on secure user authentication and database persistence.",
+    tags: ["React", "Node.js", "PostgreSQL"],
     github: "#",
     demo: "#",
-    gradient: "from-zinc-700 via-zinc-600 to-zinc-700",
     image: "",
-    comingSoon: true,
+    features: [
+      "User authentication and protected routes",
+      "Relational database integration with PostgreSQL",
+      "RESTful API endpoints with Express and Node.js",
+    ],
   },
 ]

@@ -1,111 +1,74 @@
 import { motion } from "framer-motion"
-import { Code, Layout, Wrench, Brain, Server } from "lucide-react"
-import { skillCategories } from "../data/skills"
-import { getSkillIcon } from "./SkillIcons"
+import { Code2, Boxes, Server, Layout, Database, Terminal } from "lucide-react"
+import { SkillIcon } from "./SkillIcons"
+import { skillGroups } from "../data/skills"
 
-const categoryIconMap = {
-  code: Code,
-  layout: Layout,
-  wrench: Wrench,
-  brain: Brain,
-  server: Server,
+const iconMap = {
+  languages: Code2,
+  frameworks: Boxes,
+  backend: Server,
+  frontend: Layout,
+  databases: Database,
+  "devops-tools": Terminal,
 }
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-padding relative">
-      <div className="absolute inset-0 section-glow pointer-events-none" />
+    <section id="skills" className="section-container border-t border-theme">
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.4 }}
+        className="mb-12"
+      >
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-primary">
+          Skills &amp; Technologies
+        </h2>
+        <p className="text-secondary text-sm md:text-base max-w-2xl mt-2 leading-relaxed">
+          The programming languages, frameworks, backend services, databases, and developer tools I work with.
+        </p>
+      </motion.div>
 
-      <div className="relative max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <h2 className="heading-xl">
-            My <span className="gradient-text">Skills</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-accent-cyan to-accent-purple mx-auto rounded-full" />
-        </motion.div>
+      {/* Clean Equal Horizontal Cards in Requested Order */}
+      <div className="space-y-3.5">
+        {skillGroups.map((group, idx) => {
+          const Icon = iconMap[group.id] || Code2
+          return (
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.35, delay: idx * 0.04 }}
+              className="rounded-2xl border border-theme bg-surface p-4 sm:p-5 flex flex-col md:flex-row md:items-center gap-3 sm:gap-6 hover:border-theme-strong transition-all duration-200"
+            >
+              {/* Category Title & Icon */}
+              <div className="flex items-center gap-3 md:w-56 shrink-0">
+                <div className="p-2 rounded-lg border border-theme bg-surface-panel text-accent-cyan">
+                  <Icon size={18} />
+                </div>
+                <h3 className="text-sm font-semibold text-primary">
+                  {group.title}
+                </h3>
+              </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          {skillCategories.map((category, catIndex) => {
-            const CategoryIcon = categoryIconMap[category.icon]
-            const isLanguages = category.id === "languages"
-
-            return (
-              <motion.div
-                key={category.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-                className="glass glass-hover rounded-2xl p-6 md:p-8"
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 flex items-center justify-center border border-theme">
-                    <CategoryIcon size={20} className="text-accent-cyan" />
+              {/* Skills Chips */}
+              <div className="flex flex-wrap items-center gap-2 flex-1">
+                {group.skills.map((skill) => (
+                  <div
+                    key={skill}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-theme bg-surface-panel/40 text-xs font-medium text-primary hover:bg-surface-panel hover:border-theme-strong transition-colors"
+                  >
+                    <SkillIcon skillName={skill} size={15} />
+                    <span>{skill}</span>
                   </div>
-                  <h3 className="text-lg font-semibold text-primary">
-                    {category.title}
-                  </h3>
-                </div>
-
-                <div
-                  className={
-                    isLanguages
-                      ? "grid grid-cols-2 sm:grid-cols-3 gap-3"
-                      : "flex flex-wrap gap-2.5"
-                  }
-                >
-                  {category.skills.map((skill, i) => {
-                    const SkillIcon = getSkillIcon(skill)
-
-                    return (
-                      <motion.div
-                        key={skill}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.3,
-                          delay: catIndex * 0.1 + i * 0.05,
-                        }}
-                        whileHover={{ scale: 1.03 }}
-                        className={
-                          isLanguages
-                            ? "flex flex-col items-center gap-2.5 p-4 rounded-xl chip border border-theme hover:border-accent-cyan/40 transition-all cursor-default"
-                            : "inline-flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-secondary chip border border-theme rounded-xl hover:border-accent-cyan/40 hover:text-primary transition-all"
-                        }
-                      >
-                        <div
-                          className={
-                            isLanguages
-                              ? "w-11 h-11 rounded-xl chip border border-theme flex items-center justify-center text-primary"
-                              : "w-7 h-7 rounded-lg chip border border-theme flex items-center justify-center shrink-0 text-primary"
-                          }
-                        >
-                          <SkillIcon size={isLanguages ? 22 : 16} />
-                        </div>
-                        <span
-                          className={
-                            isLanguages
-                              ? "text-xs sm:text-sm text-secondary text-center font-medium leading-tight"
-                              : "font-medium"
-                          }
-                        >
-                          {skill}
-                        </span>
-                      </motion.div>
-                    )
-                  })}
-                </div>
-              </motion.div>
-            )
-          })}
-        </div>
+                ))}
+              </div>
+            </motion.div>
+          )
+        })}
       </div>
     </section>
   )

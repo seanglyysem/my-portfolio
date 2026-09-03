@@ -1,3 +1,5 @@
+import { GitHubIcon } from "./BrandIcons"
+
 const iconClass = "block shrink-0"
 
 export function JavaScriptIcon({ size = 18 }) {
@@ -151,20 +153,7 @@ export function GitIcon({ size = 18 }) {
   )
 }
 
-export function GitHubSkillIcon({ size = 18 }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={iconClass}
-      aria-hidden="true"
-    >
-      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-    </svg>
-  )
-}
+export const GitHubSkillIcon = GitHubIcon
 
 export function VsCodeIcon({ size = 18 }) {
   return (
@@ -315,26 +304,202 @@ export function RestApiIcon({ size = 18 }) {
   )
 }
 
+export function MachineLearningIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="12" cy="12" r="3.5" stroke="#A78BFA" strokeWidth="1.5" fill="#8B5CF6" fillOpacity="0.2" />
+    </svg>
+  )
+}
+
+export function LlmIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M12 3l1.9 5.8a2 2 0 001.3 1.3L21 12l-5.8 1.9a2 2 0 00-1.3 1.3L12 21l-1.9-5.8a2 2 0 00-1.3-1.3L3 12l5.8-1.9a2 2 0 001.3-1.3L12 3z" stroke="#06B6D4" strokeWidth="1.5" strokeLinejoin="round" fill="#06B6D4" fillOpacity="0.2" />
+    </svg>
+  )
+}
+
+export function ViteIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M20.5 4.5l-8 15-8-15 8 2.5 8-2.5z" stroke="#BD34FE" strokeWidth="1.5" fill="#41D1FF" fillOpacity="0.2" />
+      <path d="M14.5 4l-4 7h3l-3 6 6.5-8.5h-3.5l3-4.5h-2z" fill="#FFD43B" />
+    </svg>
+  )
+}
+
+export function TypeScriptIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={iconClass} aria-hidden="true">
+      <rect width="24" height="24" rx="4" fill="#3178C6" />
+      <path fill="#fff" d="M11.5 11.5H8v1.8h1.2v6.2h1.8v-6.2h1.2v-1.8zm4.3 3.6c-.6-.3-1-.6-1-1.1 0-.6.5-.9 1.2-.9.7 0 1.2.3 1.5.8l1.4-.9c-.6-.9-1.6-1.4-2.9-1.4-1.8 0-3 1.1-3 2.6 0 1.5 1 2.2 2.2 2.7.7.3 1.2.6 1.2 1.1 0 .6-.6 1-1.4 1-.9 0-1.6-.4-2-1.1l-1.4.9c.7 1.2 1.9 1.8 3.4 1.8 2 0 3.3-1.1 3.3-2.7 0-1.6-1.1-2.3-2.5-2.7z" />
+    </svg>
+  )
+}
+
+export function DartIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M4 4l9.5 9.5-3.5 6.5-6-6V4z" fill="#00B4AB" />
+      <path d="M4 4l12 1.5 4 4-6.5 4.5L4 4z" fill="#01579B" />
+      <path d="M20 9.5l-2.5 8.5-7.5 2 4-6 6-4.5z" fill="#29B6F6" />
+    </svg>
+  )
+}
+
+export function KotlinIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M22 2H2v20l10-10L22 2z" fill="#7F52FF" />
+      <path d="M2 12l10 10H2V12z" fill="#C711E1" />
+      <path d="M12 12l10 10H12V12z" fill="#E4485D" opacity="0.9" />
+    </svg>
+  )
+}
+
+export function NextjsIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <circle cx="12" cy="12" r="10" fill="currentColor" />
+      <path d="M9.5 8v8M14.5 8l-5 8" stroke="var(--theme-surface, #fff)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function FlutterIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M13.5 2L4 11.5l3 3L19.5 2h-6z" fill="#02569B" />
+      <path d="M13.5 12.5L8.5 17.5 13.5 22.5h6l-7.5-7.5 7.5-2.5h-6z" fill="#0175C2" />
+      <path d="M12 14l3.5 3.5-3.5 3.5-2.5-2.5 2.5-4.5z" fill="#29B6F6" />
+    </svg>
+  )
+}
+
+export function AndroidIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M6 18a2 2 0 002 2h8a2 2 0 002-2v-7H6v7zM7 9a5 5 0 0110 0H7z" fill="#3DDC84" />
+      <circle cx="9" cy="7" r="0.75" fill="#fff" />
+      <circle cx="15" cy="7" r="0.75" fill="#fff" />
+      <path d="M7 4.5L5.5 2M17 4.5L18.5 2" stroke="#3DDC84" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+export function MySqlIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M4 6c0-2.2 3.6-4 8-4s8 1.8 8 4-3.6 4-8 4-8-1.8-8-4z" stroke="#00758F" strokeWidth="1.5" />
+      <path d="M4 6v6c0 2.2 3.6 4 8 4s8-1.8 8-4V6" stroke="#F29111" strokeWidth="1.5" />
+      <path d="M4 12v6c0 2.2 3.6 4 8 4s8-1.8 8-4v-6" stroke="#00758F" strokeWidth="1.5" />
+    </svg>
+  )
+}
+
+export function DockerIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M2 13c1.5-1 3.5-1 5 0 1.5 1 3.5 1 5 0 1.5-1 3.5-1 5 0 1.5 1 3.5 1 5 0" stroke="#2496ED" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M3 13c.5 4 4.5 7 9 7s8.5-3 9-7" stroke="#2496ED" strokeWidth="1.5" />
+      <rect x="6" y="9" width="3" height="3" rx="0.5" fill="#2496ED" />
+      <rect x="10" y="9" width="3" height="3" rx="0.5" fill="#2496ED" />
+      <rect x="14" y="9" width="3" height="3" rx="0.5" fill="#2496ED" />
+      <rect x="10" y="5.5" width="3" height="3" rx="0.5" fill="#2496ED" />
+    </svg>
+  )
+}
+
+export function LinuxIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M12 2C9.2 2 7 4.2 7 7c0 2.5 1.5 4.5 2 6.5-.5 1-2 2-2 4 0 2 2.2 3 5 3s5-1 5-3c0-2-1.5-3-2-4 .5-2 2-4 2-6.5 0-2.8-2.2-5-5-5z" fill="#FCC624" />
+      <circle cx="10" cy="7" r="1" fill="#000" />
+      <circle cx="14" cy="7" r="1" fill="#000" />
+      <path d="M11 9.5c.5.5 1.5.5 2 0" stroke="#E95420" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+export function NginxIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" fill="#009639" fillOpacity="0.2" stroke="#009639" strokeWidth="1.5" />
+      <path d="M8 8v8l8-8v8" stroke="#009639" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function NgrokIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <rect width="20" height="20" x="2" y="2" rx="4" fill="#1F1E38" />
+      <path d="M7 8h2v8H7V8zm4 0h2v4.5l2.5-4.5H18l-3.5 5.5 4 6.5h-2.5L13 13.5V16h-2V8z" fill="#1F69FF" />
+    </svg>
+  )
+}
+
+export function SqlIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <ellipse cx="12" cy="6" rx="7" ry="2.5" stroke="#0284C7" strokeWidth="1.5" />
+      <path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6" stroke="#0284C7" strokeWidth="1.5" />
+      <path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5" stroke="#38BDF8" strokeWidth="1.5" />
+    </svg>
+  )
+}
+
+export function SupabaseIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path
+        d="M21.362 9.354H12V.396a.396.396 0 00-.716-.233L.12 14.342a.396.396 0 00.316.638H12v8.958a.396.396 0 00.716.233l11.164-14.179a.396.396 0 00-.518-.638z"
+        fill="#3ECF8E"
+      />
+    </svg>
+  )
+}
+
 // Map skill names to their icons — add new entries when you add skills in skills.js
-export const skillIconMap = {
+const skillIconMap = {
   JavaScript: JavaScriptIcon,
+  TypeScript: TypeScriptIcon,
   Python: PythonIcon,
-  Java: JavaIcon,
-  "C++": CppIcon,
+  Dart: DartIcon,
+  Kotlin: KotlinIcon,
+  SQL: SqlIcon,
+  "Next.js": NextjsIcon,
+  React: ReactIcon,
+  "Express.js": ExpressIcon,
+  Flutter: FlutterIcon,
   HTML: HtmlIcon,
   CSS: CssIcon,
-  React: ReactIcon,
   "Tailwind CSS": TailwindIcon,
-  "Responsive Design": ResponsiveIcon,
-  "Framer Motion": FramerMotionIcon,
   "Node.js": NodeIcon,
-  "Express.js": ExpressIcon,
-  MongoDB: MongoIcon,
-  PostgreSQL: PostgresIcon,
+  Supabase: SupabaseIcon,
+  "REST API": RestApiIcon,
   "REST APIs": RestApiIcon,
+  "Kotlin / Android": AndroidIcon,
+  Android: AndroidIcon,
+  MySQL: MySqlIcon,
+  PostgreSQL: PostgresIcon,
+  MongoDB: MongoIcon,
   Git: GitIcon,
   GitHub: GitHubSkillIcon,
+  Docker: DockerIcon,
+  Linux: LinuxIcon,
+  Nginx: NginxIcon,
+  ngrok: NgrokIcon,
+  Java: JavaIcon,
+  "C++": CppIcon,
+  "Responsive Design": ResponsiveIcon,
+  "Framer Motion": FramerMotionIcon,
+  "Machine Learning": MachineLearningIcon,
+  LLMs: LlmIcon,
   "VS Code": VsCodeIcon,
+  Vite: ViteIcon,
   Vercel: VercelIcon,
   Figma: FigmaIcon,
   "Data Structures": DataStructuresIcon,
@@ -344,6 +509,8 @@ export const skillIconMap = {
   "Software Engineering": SoftwareEngineeringIcon,
 }
 
-export function getSkillIcon(skillName) {
-  return skillIconMap[skillName] || DefaultSkillIcon
+export function SkillIcon({ skillName, size = 18 }) {
+  const IconComponent = skillIconMap[skillName] || DefaultSkillIcon
+  return <IconComponent size={size} />
 }
+

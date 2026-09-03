@@ -1,97 +1,65 @@
 @import "tailwindcss";
 
-/* Theme tokens — colors shift via .light / .dark on <html> */
+/* Minimal Theme Tokens */
 :root,
 .light {
   --theme-surface: #ffffff;
-  --theme-surface-elevated: #fafafa;
-  --theme-foreground: #09090b;
-  --theme-muted: #71717a;
-  --theme-subtle: #a1a1aa;
-  --theme-border: rgba(9, 9, 11, 0.08);
-  --theme-border-strong: rgba(9, 9, 11, 0.15);
-  --theme-glass: rgba(255, 255, 255, 0.75);
-  --theme-glass-hover: rgba(255, 255, 255, 0.92);
-  --theme-chip: rgba(9, 9, 11, 0.05);
+  --theme-surface-elevated: #f9fafb;
+  --theme-surface-panel: #f3f4f6;
+  --theme-foreground: #111827;
+  --theme-muted: #4b5563;
+  --theme-subtle: #6b7280;
+  --theme-border: #e5e7eb;
+  --theme-border-strong: #d1d5db;
+  --theme-card: #ffffff;
+  --theme-chip: #f3f4f6;
   --theme-shadow: rgba(0, 0, 0, 0.05);
-  --theme-glow-blue: rgba(9, 9, 11, 0.05);
-  --theme-glow-teal: rgba(9, 9, 11, 0.04);
-  --theme-orb-1: rgba(9, 9, 11, 0.02);
-  --theme-orb-2: rgba(9, 9, 11, 0.015);
-  --theme-orb-3: rgba(9, 9, 11, 0.015);
-  --theme-bg-gradient-1: rgba(9, 9, 11, 0.015);
-  --theme-bg-gradient-2: rgba(9, 9, 11, 0.01);
-  --theme-bg-gradient-3: rgba(9, 9, 11, 0.01);
-  --theme-section-glow: transparent;
-  --theme-section-glow-purple: transparent;
-  --theme-terminal-header: rgba(9, 9, 11, 0.03);
-  --theme-photo-border: rgba(9, 9, 11, 0.1);
-  --theme-photo-shadow: rgba(0, 0, 0, 0.1);
-  --theme-github-icon: #09090b;
 
-  /* Black and white accents */
-  --theme-accent-1: #09090b;
-  --theme-accent-2: #27272a;
-  --theme-accent-3: #52525b;
+  --theme-accent-cyan: #0284c7;
+  --theme-accent-blue: #2563eb;
+  --theme-accent-purple: #7c3aed;
 
-  /* Primary button styling */
-  --theme-btn-primary-bg: #09090b;
+  --theme-btn-primary-bg: #111827;
   --theme-btn-primary-text: #ffffff;
-  --theme-btn-primary-hover: #27272a;
+  --theme-btn-primary-hover: #1f2937;
 }
 
 .dark {
   --theme-surface: #09090b;
-  --theme-surface-elevated: #121215;
-  --theme-foreground: #fafafa;
-  --theme-muted: #a1a1aa;
-  --theme-subtle: #71717a;
-  --theme-border: rgba(255, 255, 255, 0.08);
-  --theme-border-strong: rgba(255, 255, 255, 0.16);
-  --theme-glass: rgba(18, 18, 21, 0.75);
-  --theme-glass-hover: rgba(18, 18, 21, 0.92);
-  --theme-chip: rgba(255, 255, 255, 0.05);
+  --theme-surface-elevated: #111114;
+  --theme-surface-panel: #18181b;
+  --theme-foreground: #f9fafb;
+  --theme-muted: #9ca3af;
+  --theme-subtle: #6b7280;
+  --theme-border: #27272a;
+  --theme-border-strong: #3f3f46;
+  --theme-card: #111114;
+  --theme-chip: #18181b;
   --theme-shadow: rgba(0, 0, 0, 0.4);
-  --theme-glow-blue: rgba(255, 255, 255, 0.04);
-  --theme-glow-teal: rgba(255, 255, 255, 0.03);
-  --theme-orb-1: rgba(255, 255, 255, 0.015);
-  --theme-orb-2: rgba(255, 255, 255, 0.01);
-  --theme-orb-3: rgba(255, 255, 255, 0.01);
-  --theme-bg-gradient-1: rgba(255, 255, 255, 0.01);
-  --theme-bg-gradient-2: rgba(255, 255, 255, 0.005);
-  --theme-bg-gradient-3: rgba(255, 255, 255, 0.005);
-  --theme-section-glow: transparent;
-  --theme-section-glow-purple: transparent;
-  --theme-terminal-header: rgba(255, 255, 255, 0.04);
-  --theme-photo-border: rgba(255, 255, 255, 0.12);
-  --theme-photo-shadow: rgba(0, 0, 0, 0.5);
-  --theme-github-icon: #fafafa;
 
-  /* Black and white accents */
-  --theme-accent-1: #fafafa;
-  --theme-accent-2: #e4e4e7;
-  --theme-accent-3: #a1a1aa;
+  --theme-accent-cyan: #38bdf8;
+  --theme-accent-blue: #60a5fa;
+  --theme-accent-purple: #a78bfa;
 
-  /* Primary button styling */
-  --theme-btn-primary-bg: #fafafa;
+  --theme-btn-primary-bg: #f9fafb;
   --theme-btn-primary-text: #09090b;
-  --theme-btn-primary-hover: #e4e4e7;
+  --theme-btn-primary-hover: #e5e7eb;
 }
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", Menlo, monospace;
 
   --color-surface: var(--theme-surface);
   --color-surface-elevated: var(--theme-surface-elevated);
+  --color-surface-panel: var(--theme-surface-panel);
   --color-foreground: var(--theme-foreground);
   --color-muted: var(--theme-muted);
   --color-subtle: var(--theme-subtle);
 
-  /* New accent palette: mapped to monochrome variables */
-  --color-accent-blue: var(--theme-accent-1);
-  --color-accent-cyan: var(--theme-accent-2);
-  --color-accent-purple: var(--theme-accent-3);
+  --color-accent-cyan: var(--theme-accent-cyan);
+  --color-accent-blue: var(--theme-accent-blue);
+  --color-accent-purple: var(--theme-accent-purple);
 }
 
 @layer base {
@@ -105,16 +73,7 @@
   }
 
   body {
-    @apply bg-surface text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -20%, var(--theme-bg-gradient-1), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 0%, var(--theme-bg-gradient-2), transparent),
-      radial-gradient(ellipse 50% 30% at 0% 100%, var(--theme-bg-gradient-3), transparent);
-  }
-
-  ::selection {
-    background-color: rgba(120, 120, 120, 0.2);
-    color: var(--theme-foreground);
+    @apply bg-surface text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-200 selection:bg-blue-500/20 selection:text-foreground;
   }
 }
 
@@ -139,143 +98,57 @@
     border-color: var(--theme-border-strong);
   }
 
-  .glass {
-    background-color: var(--theme-glass);
+  .clean-card {
+    background-color: var(--theme-card);
     border: 1px solid var(--theme-border);
-    @apply backdrop-blur-xl;
   }
 
-  .glass-hover {
-    @apply transition-all duration-300;
-  }
-
-  .glass-hover:hover {
-    background-color: var(--theme-glass-hover);
+  .clean-card:hover {
     border-color: var(--theme-border-strong);
-    box-shadow: 0 8px 32px var(--theme-shadow);
   }
 
-  .chip {
-    background-color: var(--theme-chip);
-    border-color: var(--theme-border);
-  }
-
-  .gradient-text {
+  .gradient-title {
     @apply bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple bg-clip-text text-transparent;
   }
 
-  .glow-blue {
-    box-shadow: 0 0 40px var(--theme-glow-blue);
-  }
-
-  .glow-cyan {
-    box-shadow: 0 0 40px var(--theme-glow-teal);
-  }
-
-  .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-20 md:py-28;
-  }
-
-  .section-glow {
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      var(--theme-section-glow),
-      transparent
-    );
-  }
-
-  .section-glow-purple {
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      var(--theme-section-glow-purple),
-      transparent
-    );
-  }
-
-  .nav-link {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    color: var(--theme-muted);
-    border-radius: 0.5rem;
-    transition: color 0.3s, background-color 0.3s;
-  }
-
-  .nav-link:hover {
-    color: var(--theme-foreground);
-    background-color: var(--theme-chip);
-  }
-
-  .nav-mobile-link:hover {
-    background-color: var(--theme-chip);
+  .section-container {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24;
   }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--theme-btn-primary-text);
     background-color: var(--theme-btn-primary-bg);
-    box-shadow: 0 4px 14px var(--theme-shadow);
-    transition: all 0.3s;
+    transition: all 0.2s ease;
   }
 
   .btn-primary:hover {
     background-color: var(--theme-btn-primary-hover);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px var(--theme-shadow);
   }
 
   .btn-secondary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--theme-foreground);
-    background-color: var(--theme-glass);
+    background-color: var(--theme-surface-panel);
     border: 1px solid var(--theme-border);
-    backdrop-filter: blur(24px);
-    transition: all 0.3s;
+    transition: all 0.2s ease;
   }
 
   .btn-secondary:hover {
-    background-color: var(--theme-glass-hover);
     border-color: var(--theme-border-strong);
-    box-shadow: 0 8px 32px var(--theme-shadow);
-  }
-
-  .heading-xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    font-weight: 700;
-    color: var(--theme-foreground);
-    margin-bottom: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    .heading-xl {
-      font-size: 2.25rem;
-      line-height: 2.5rem;
-    }
-  }
-
-  .github-icon-themed {
-    color: var(--theme-github-icon);
-  }
-
-  /* Skill icons inside chips */
-  .chip svg {
-    transition: transform 0.3s;
-  }
-
-  .chip:hover svg {
-    transform: scale(1.1);
+    transform: translateY(-1px);
   }
 }

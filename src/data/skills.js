@@ -1,25 +1,36 @@
 // ============================================
-// EDIT YOUR SKILLS HERE
-// Add or remove items in each category array.
+// SKILLS DATA
 // ============================================
 
-export const skillCategories = [
+export const skillGroups = [
   {
-    id: "frontend",
-    title: "Frontend",
-    icon: "layout",
-    skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS", "Framer Motion", "Responsive Design"],
+    id: "languages",
+    title: "Programming Languages",
+    skills: ["JavaScript", "TypeScript", "Python", "Dart", "Kotlin", "SQL"],
+  },
+  {
+    id: "frameworks",
+    title: "Frameworks & Libraries",
+    skills: ["React", "Next.js", "Express.js", "Flutter"],
   },
   {
     id: "backend",
-    title: "Backend",
-    icon: "server",
-    skills: ["Node.js", "Express.js", "Python", "Java", "MongoDB", "PostgreSQL", "REST APIs"],
+    title: "Backend & BaaS",
+    skills: ["Node.js", "Supabase", "REST API"],
   },
   {
-    id: "tools",
-    title: "Tools",
-    icon: "wrench",
-    skills: ["Git", "GitHub", "VS Code", "Vercel", "Figma"],
+    id: "frontend",
+    title: "Frontend",
+    skills: ["HTML", "CSS", "Tailwind CSS"],
+  },
+  {
+    id: "databases",
+    title: "Databases",
+    skills: ["MySQL", "PostgreSQL", "MongoDB"],
+  },
+  {
+    id: "devops-tools",
+    title: "DevOps & Tools",
+    skills: ["Git", "GitHub", "Docker", "Linux", "Nginx", "ngrok"],
   },
 ]
