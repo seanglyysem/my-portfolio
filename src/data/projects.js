@@ -32,7 +32,7 @@ async function initDashboard(coords) {
     id: 2,
     title: "Attendance Management System",
     description:
-      "A web-based attendance tracking platform designed for classes and teams. Manages daily check-ins, student attendance records, automated leave tracking, and downloadable summary reports.",
+      "A web-based employee attendance and shift tracking platform designed for companies. Manages daily punch-in/out records, employee leave workflows, automated overtime calculations, and exportable payroll reports.",
     tags: ["Java", "Spring Boot", "MySQL"],
     github: "#",
     demo: "#",
@@ -41,15 +41,15 @@ async function initDashboard(coords) {
       lang: "Java",
       code: `@PostMapping("/records/check-in")
 public ResponseEntity<Record> recordCheckIn(@Valid @RequestBody CheckInDto req) {
-    Student student = studentRepo.findById(req.getStudentId())
+    Employee employee = employeeRepo.findById(req.getEmployeeId())
         .orElseThrow(() -> new RecordNotFoundException());
-    return ResponseEntity.ok(attendanceService.markPresent(student));
+    return ResponseEntity.ok(attendanceService.markPresent(employee));
 }`,
     },
     features: [
-      "Real-time student attendance check-ins and absence monitoring",
-      "Course enrollment tracking with structured relational database tables",
-      "Exportable attendance analytics reports for faculty and administrators",
+      "Real-time employee punch-in/out tracking and shift attendance logs",
+      "Leave request management workflows with automated absence records",
+      "Exportable attendance analytics and payroll-ready monthly summaries",
     ],
   },
   {

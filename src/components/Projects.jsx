@@ -20,7 +20,7 @@ const projectMeta = {
   },
   2: {
     icon: UserCheck,
-    category: "Academic / Enterprise",
+    category: "Company / Enterprise",
     gradient: "from-emerald-500/15 via-teal-500/10 to-transparent",
     iconBg: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
   },
