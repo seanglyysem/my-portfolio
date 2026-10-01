@@ -28,9 +28,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
+            className="flex flex-wrap items-center gap-3"
           >
             <span className="text-xs font-mono font-medium text-accent-cyan tracking-wide uppercase">
               Full Stack Developer
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              GitHub Action Test • Active
             </span>
           </motion.div>
 
