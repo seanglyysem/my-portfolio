@@ -441,6 +441,14 @@ export function NgrokIcon({ size = 18 }) {
   )
 }
 
+export function CloudflareIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      <path fill="#F38020" d="M18.72 10.74C18.28 6.55 14.73 3.3 10.5 3.3c-3.5 0-6.47 2.33-7.3 5.46C1.45 9.17 0 10.77 0 12.7c0 2.37 1.93 4.3 4.3 4.3h13.4c2.37 0 4.3-1.93 4.3-4.3 0-2.22-1.7-4.04-3.86-4.23z" />
+    </svg>
+  )
+}
+
 export function SqlIcon({ size = 18 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
@@ -458,6 +466,17 @@ export function SupabaseIcon({ size = 18 }) {
         d="M21.362 9.354H12V.396a.396.396 0 00-.716-.233L.12 14.342a.396.396 0 00.316.638H12v8.958a.396.396 0 00.716.233l11.164-14.179a.396.396 0 00-.518-.638z"
         fill="#3ECF8E"
       />
+    </svg>
+  )
+}
+
+export function AwsIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
+      {/* The orange smile */}
+      <path d="M11.53 17.15c-1.53 0-3.06-.29-4.51-.83l.42-1.09c1.33.52 2.74.78 4.1.78 1.45 0 2.89-.28 4.23-.83l.44 1.06c-1.48.59-3.13.91-4.68.91zm10.74 1.2c-2.73 1.94-6.15 2.91-9.66 2.91-3.32 0-6.54-.86-9.25-2.51l.66-1.02c2.56 1.56 5.58 2.37 8.68 2.37 3.25 0 6.44-.88 9.07-2.61l.5 1.15V18.6z" fill="#FF9900" />
+      {/* The AWS letters that should adapt to text color in light/dark mode */}
+      <path d="M7.4 12.01h1.53l.76 2.45h.02l.74-2.45h1.5l1.09 3.96h-1.34l-.45-2.22h-.03l-.71 2.22H9.3l-.7-2.22h-.03l-.5 2.22H6.75l.65-3.96zm4.8 1.92c0 .94.61 1.34 1.35 1.34.8 0 1.27-.47 1.27-1.12 0-1.48-2.29-1.2-2.29-2.58 0-.64.55-1.15 1.43-1.15.75 0 1.36.31 1.54.91l-1.17.47c-.12-.27-.4-.44-.72-.44-.31 0-.61.16-.61.47 0 1.03 2.29.83 2.29 2.5 0 .8-.56 1.28-1.51 1.28-1.01 0-1.63-.5-1.74-1.21l1.17-.46zm6.81-.51h-2.12v.72c0 .54.4.82.93.82.47 0 .86-.23.95-.6l1.24.32c-.32.74-1 1.25-2.2 1.25-1.39 0-2.31-1-2.31-2.38s.92-2.38 2.3-2.38c1.39 0 2.2 1 2.2 2.29v.05zm-2.12-.96h1.02c0-.5-.33-.8-.85-.8-.53 0-.89.3-.98.8h.81zm-4.73 3.51h1.45V10.4h-1.45v3.96z" fill="currentColor" />
     </svg>
   )
 }
@@ -492,6 +511,8 @@ const skillIconMap = {
   Linux: LinuxIcon,
   Nginx: NginxIcon,
   ngrok: NgrokIcon,
+  Cloudflare: CloudflareIcon,
+  AWS: AwsIcon,
   Java: JavaIcon,
   "C++": CppIcon,
   "Responsive Design": ResponsiveIcon,

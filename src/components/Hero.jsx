@@ -15,27 +15,22 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="pt-32 pb-20 md:pt-40 md:pb-28">
+    <section id="home" className="min-h-screen flex flex-col justify-center pt-20 pb-16 md:pt-24 md:pb-20">
       <Toast
         message={toastMessage}
         isVisible={toastVisible}
         onClose={() => setToastVisible(false)}
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="flex flex-wrap items-center gap-3"
           >
             <span className="text-xs font-mono font-medium text-accent-cyan tracking-wide uppercase">
               Full Stack Developer
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              GitHub Action Test • Active
             </span>
           </motion.div>
 
@@ -54,7 +49,7 @@ export default function Hero() {
             transition={{ duration: 0.4, delay: 0.15 }}
             className="text-secondary text-base md:text-lg leading-relaxed max-w-2xl"
           >
-            I am a software developer with a strong foundation in React, Node.js, and modern web development. I enjoy turning practical ideas into well-structured, fast, and easy-to-use software.
+            I am a full stack developer with a strong foundation in React, Node.js, and modern web development. I enjoy turning practical ideas into well-structured, fast, and easy-to-use software.
           </motion.p>
 
           <motion.div

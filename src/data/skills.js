@@ -31,6 +31,6 @@ export const skillGroups = [
   {
     id: "devops-tools",
     title: "DevOps & Tools",
-    skills: ["Git", "GitHub", "Docker", "Linux", "Nginx", "ngrok"],
+    skills: ["Git", "GitHub", "Docker", "Linux", "Nginx", "Cloudflare", "AWS"],
   },
 ]
